@@ -8,37 +8,61 @@
     <link rel="stylesheet" href="./sejamembro.css">
 </head>
 <body>
-    <div class="navbar">
-        <img id="logo" src="./Rick-And-Morty-Logo.png">
-        
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Personagens</a></li>
-            <li><a href="#">História</a></li>
-            <li><a href="#">Seja membro</a></li>
-        </ul>
-        <a href="#"><Button type="button">Entrar</Button></a>
+    <div class="header">
+        <div class="container">
+            <div class="nav">
+
+                <img id="logo" src="./imagens/Rick-And-Morty-Logo.png">
+
+                <!-- utilizamos <ul> para criar listas e <li> para item da lista -->
+                <ul>
+                    <li><a href="./inicio.html">Home</a></li>
+                    <li><a href="">Personagens</a></li>
+                    <li><a href="">História</a></li>
+                    <li><a href="">Seja Membro </a></li>
+                    <a href="#"><Button type="button">Entrar</Button></a>
+                </ul>
+
+                
+
+            </div>
+        </div>
     </div>
 
-    <div class="parte1">
-<div class="regua">
-    <div class="titulo"> 
-        <h1>Entrar</h1>
-    </div>
-    <p>Bem-vindo de volta, entre em nosso blog e tenha
-        acesso ao nossos serviços
-    </p>
-    <span><b>Email</b></span>
-    <input id="email"
-    placeholder="nome@exemplo.com">
-    <h2><b>Senha</b></h2>
-    <input id="senha"
-    placeholder="password">
-</div>
-<div class="Entrar">
-   <a id="entrar" onclick="entrar()">Entrar</a>
-</div>
-    </div>
+    <div class="showcase">
+        <div class="container2">
+            <div class="caixacadastro">
+                <div class="titulo"> 
+                    <h1>Entrar</h1>
+                </div>
+                <p>Bem-vindo de volta, entre em nosso blog e tenha
+                    acesso ao nossos serviços
+                </p>
+                <span><b>Email</b></span>
+                <input id="email"
+                placeholder="nome@exemplo.com">
+                <h2><b>Senha</b></h2>
+                <input id="senha"
+                placeholder="password">
+                <div class="Entrar">
+                    <a id="entrar" onclick="entrar()">Entrar</a>
+                 </div>
+                
+                  <div id="entrarcadastro">
+                    <div id="cadastro">
+                      Não possui uma conta?<a href="Cadastro.html"> Cadastrar-se</a>
+                    </div>
+                  </div>
+            </div>
+            
+            </div>
+            </div>
+                
+
+        
+
+    
+    
     
 </body>
 </html>
