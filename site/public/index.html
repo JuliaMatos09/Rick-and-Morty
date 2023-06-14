@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="./inicio.css">
+</head>
+
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="nav">
+
+                <img id="logo" src="./imagens/logo.png">
+
+                <!-- utilizamos <ul> para criar listas e <li> para item da lista -->
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="./historia.html">História</a></li>
+                    <li><a href="./cadastro.html">Seja Membro </a></li>
+                    <a href="./sejamembro.html"><Button type="button">Entrar</Button></a>
+                </ul>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="showcase">
+        <div class="container2">
+            <div class="data2">
+
+
+                <h2>As aventuras de Rick and Morty</h2>
+
+                <p>A trama gira em torno das aventuras perigosas de Rick, um cientista gênio alcoólatra,
+                    e Morty, seu neto aparentemente ingênuo, que graças as viagens interdimensionais com seu avô
+                    começa a perceber o quão complexo o mundo a sua volta pode ser e o quão desastrosas as relações
+                    de causa e efeito podem ficar.</p>
+
+            </div>
+            <div class="botãohistoria"> <a href="./historia.html"><button id="historia" onclick="saibamais()">Saiba
+                        mais</button></a></div>
+        </div>
+
+
+    </div>
+    <!-- fim SHOW CASE -->
+
+    <div class="perfil">
+        <div class="content">
+
+            <div class="data">
+
+                <div class="title">
+                    <h1>Conheça as dimensões </h1>
+                    <h1> Mais iradas da serie!</h1>
+                </div>
+
+                <p>Venha conferir cada uma delas</p>
+
+                <button onclick="sortear()">Sortear</button>
+                <div id="mensagem"></div>
+                <!-- <img src="./imagens/personagens.jpg" alt=""> -->
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="showcase2">
+        <div class="container3">
+
+
+            <div class="box-org">
+                <h1>Rick and Morty</h1>
+                <p>Seja membro e conheça os personagens mais loucos da serie!
+                    Lá você podera escolher o seu parsonagem favorito e ter acesso
+                    a nossa dashboard
+
+                </p>
+            </div>
+            <div class="botãopersona"> <a href="./cadastro.html"><button id="persona" onclick="saibamais()">Saiba
+                        mais</button></a></div>
+
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function sortear() {
+        var aleatorio = Math.random() * 10;
+        var imagens = [`<img src="./imagens/local1.jpg">`,
+                     `<img src="./imagens/local2.jpg">`,
+                     `<img src="./imagens/local3.jpg">`,
+                     `<img src="./imagens/local4.jpg">`,
+                     `<img src="./imagens/local5.jpg">`,
+                     `<img src="./imagens/local6.jpg">`,
+                     `<img src="./imagens/local7.jpg">`,
+                     `<img src="./imagens/local8.jpg">`,
+                     `<img src="./imagens/local9.jpg">`,
+                     `<img src="./imagens/local10.jpg">`,
+                    ];
+
+                    mensagem.innerHTML = imagens[parseInt(aleatorio)];
+    }
+</script>

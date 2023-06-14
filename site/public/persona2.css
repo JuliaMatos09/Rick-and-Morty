@@ -1,0 +1,264 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.containernav {
+    width: 80%;
+    margin: auto;
+    height: 50px;
+    margin-left: 30px;
+
+}
+
+.header {
+    background-color: #232323;
+    height: 70px;
+    padding-top: 30px;
+    margin: 0;
+}
+
+#logo {
+    width: 160px;
+    float: left;
+    margin: -19px 0px 0px -246px;
+}
+
+.nav ul {
+    margin: 0;
+}
+
+
+.nav {
+    float: right;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 19px;
+    font-family: 'Syne Mono', monospace;
+}
+
+.nav li {
+    display: inline-block;
+    padding: 20px;
+    padding: 10px 20px 0 20px;
+}
+
+.nav button {
+    border: solid rgba(40, 209, 221, 0.5);
+    background-color: rgba(40, 209, 221, 0.5);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.showcase {
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 1000px;
+    background-attachment: fixed;
+
+}
+
+
+h2 {
+    margin-bottom: 48px;
+    padding-bottom: 16px;
+    font-size: 30px;
+    line-height: 28px;
+    font-weight: 700;
+    color: #affff6;
+    font-family: 'Syne Mono', monospace;
+    position: relative;
+    width: 400px;
+    
+}
+
+ .titulo{
+    justify-content: center;
+    display: flex;
+    justify-content: space-evenly;  
+    margin-left: 430px;
+    
+}
+
+h3 {
+    margin: 0 0 10px;
+    font-size: 28px;
+    line-height: 36px;
+}
+
+
+
+.container {
+    padding: 60px 50px;
+}
+
+.container .owl-stage {
+    margin: 15px 0;
+    display: flex;
+   
+}
+
+.item.active  {
+    margin: 0 15px 60px;
+    width: 320px;
+    height: 400px;
+    display: flex;
+    display: -webkit-flex;
+    align-items: flex-end;
+    -webkit-align-items: flex-end;
+    border-radius: 16px;
+    background: #343434 no-repeat center center / cover;
+}
+
+.item.active:hover{
+    width: 400px;
+    transition: 300ms;
+}
+
+.conteudo .active{
+    display: none;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    cursor: pointer;
+    
+}
+
+.conteudo h3, .conteudo p {
+    opacity: 0;
+}
+
+.item.active:hover > .conteudo h3{
+    opacity: 1;
+}
+.item.active:hover > .conteudo p{
+    opacity: 1;
+}
+
+.item.active:hover > .conteudo  {
+    padding: 10px 24px 12px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    -webkit-transform: translateY(calc(100% - 54px));
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    display: block;
+
+}
+
+
+
+
+
+
+.conteudo:hover  {
+    padding: 10px 24px 12px;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    -webkit-transform: translateY(calc(100% - 54px));
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    display: block;
+
+}
+
+
+
+.container .item.active .conteudo {
+    transform: none;
+    -webkit-transform: none;
+}
+
+.agrupamento  {
+    margin-top: -20px;
+   display: flex;
+   justify-content: space-evenly;
+}
+
+
+
+.container2 {
+    padding: 60px 50px;
+}
+
+.container2 .owl-stage {
+    margin: 15px 0;
+    display: flex;
+   
+}
+
+.container2 .item.active .conteudo {
+    transform: none;
+    -webkit-transform: none;
+}
+
+
+
+
+
+
+.botao button {
+    border: solid rgba(40, 209, 221, 0.5);
+    background-color: rgba(40, 209, 221, 0.5);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 15px;
+   
+}
+
+.container3 {
+    padding: 60px 50px;
+}
+
+.container3 .owl-stage {
+    margin: 15px 0;
+    display: flex;
+   
+}
+
+.container3 .item.active .conteudo {
+    transform: none;
+    -webkit-transform: none;
+}
+
+#titulobox {
+    color: #affff6;
+    font-family: 'Syne Mono', monospace;
+    font-size: 30px;
+}
+
+#combo {
+    margin-top: 20px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

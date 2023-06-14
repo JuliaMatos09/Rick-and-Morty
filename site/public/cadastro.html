@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./cadastro.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="nav">
+
+                <img id="logo" src="./imagens/logo.png">
+
+                <!-- utilizamos <ul> para criar listas e <li> para item da lista -->
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                   
+                    <li><a href="./historia.html">História</a></li>
+                    <li><a href="">Seja Membro </a></li>
+                    <a href="./sejamembro.html"><Button type="button">Entrar</Button></a>
+                </ul>
+
+                
+
+            </div>
+        </div>
+    </div>
+
+    <div class="showcase"> </div>
+    <div class="container">
+        <div class="caixa">
+            <div class="login">
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+            <div class="titulocadastro">
+                <h1>Cadastrar</h1>
+            </div>
+            <div id="mensagem">
+                <span>
+                    Faça seu cadastro e tenha acesso <br> ao nosso blog.
+                </span>
+            </div>
+            <div class="campos">
+                <h1>Nome</h1>
+                <input placeholder="Seu nome" id="nome_input">
+            </div>
+            <div class="campos">
+                <h1>Email</h1>
+                <input placeholder="Seu email" id="email_input">
+        </div>
+        <div class="campos">
+            <h1>Senha</h1>
+            <input placeholder="Sua senha" type="password" id="senha_input">
+    </div>
+        <!-- <div class="campos">
+            <h1>CPF</h1>
+            <input placeholder="Seu CPF" id="cpf_input">
+    </div> -->
+
+    
+    <div class="final">
+        <button onclick="cadastrar()">Cadastrar</button>
+    </div>
+        <div id="cadastro">Já possui uma conta? <a href="./sejamembro.html">Entrar</a></div>
+    </div>
+    
+</div>  
+</body>
+<div id="div_erros_login"></div>
+</html>
+<script>
+function cadastrar() {
+    
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    // var cpfVAr = Number(cpf_input.value);
+
+    if(emailVar.indexOf('@') == -1 || emailVar.indexOf('.') == -1){
+            alert (`Insira um email válido`)
+            event.preventDefault()}
+
+            // if(cpfVAr < 11 || cpfVAr > 11){
+            //     alert('CPF invalido, verifique')
+            //     event.preventDefault()
+            // }
+      
+
+    if (nomeVar == "" || emailVar == "" || senhaVar == "" ) {
+       // cardErro.style.display = "block"
+        alert('Preencha todos os campos')
+
+       // finalizarAguardar();
+        return false;
+    }
+    else {
+        setInterval(sumirMensagem, 5000)
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar,
+            
+           
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            cardErro.style.display = "block";
+
+            mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+            // setTimeout(() => {
+            //     window.location = "./sejamembro.html";
+            // }, "2000")
+
+            //finalizarAguardar();
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        //finalizarAguardar();
+    });
+
+    return false;
+}
+
+function sumirMensagem() {
+    cardErro.style.display = "none"
+}
+
+</script>

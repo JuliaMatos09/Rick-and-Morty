@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dash.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="exibirdados()">
+    
+    <div class="header">
+        <div class="container">
+            <div class="nav">
+
+                <img id="logo" src="./Rick-And-Morty-Logo.png">
+
+                <!-- utilizamos <ul> para criar listas e <li> para item da lista -->
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./persona2.html">Personagens</a></li>
+                    <li><a href="./historia.html">História</a></li>
+                    <li><a href="./cadastro.html">Seja Membro </a></li>
+                    <a href="./index.html"><Button type="button">Sair</Button></a>
+                </ul>
+
+
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container">
+     
+        <nav class="menu-dashboard">
+            <div class="logo">  <img src="./Rick-And-Morty-Logo.png" ></div>
+            <ul>
+                <li><a href="./public/persona2.html">Personagens</a></li>
+                <li><a href="index.html">Comentarios</a></li>
+                <li><a href="index.html">Resumo</a></li>
+                <li><a href="">Sair</a></li>
+            </ul>
+        </nav> -->
+
+
+
+
+    <div id="conteudo">
+        <h1>Olá, <span id="nomeDinamico"></span>. Seja bem-vinda!</h1>
+        <div id="info">
+            <div id="votos" class="info-card">
+                <p class="titulo-card"> Mais Votado</p>
+                <p id="max_valor" class="valor-card"></p>
+               
+            </div>
+            <div id="sensores" class="info-card">
+                <p class="titulo-card">Menos Votado</p>
+                <p id="min_valor" class="valor-card"></p>
+              
+            </div>
+            <div id="grafico" class="info-card">
+                <p class="titulo-card">Soma de todos os votos</p>
+                <p id="total_valor" class="valor-card"></p>
+                
+            </div>
+        </div>
+
+
+        <!--     
+            <h2 id="indicadores"> Personagens </h2>
+                <section class="acompanhamento"> <a name="alerta"></a>
+                    <table id="tabela-risco">
+                        <tr>
+                           
+                            <th class="titulo-critico1">Rick</th>
+                            <th class="titulo-emergencia1">Morty</th>
+                            <th class="titulo-alerta1">Summer</th>
+                            <th class="titulo-ideal">Beth</th>
+                            <th class="titulo-alerta2">Jerry</th>
+                            <th class="titulo-emergencia2">Emergência</th>
+                            <th class="titulo-critico2">Crítico</th>
+                        </tr>
+                        <tr>
+                            <td class="titulo-critico1">30.0 °C</td>
+                            <td class="titulo-emergencia1">31.5 °C</td>
+                            <td class="titulo-alerta1">32.5 °C</td>
+                            <td class="titulo-ideal" >33.1 °C - 33.5 °C</td>
+                            <td class="titulo-alerta2">33.9 °C</td>
+                            <td class="titulo-emergencia2">34.3 °C</td>
+                            <td class="titulo-critico2">35.0 °C</td>
+                        </tr>
+                        </table> <br>
+                    
+                </section> -->
+
+
+        <div id="exibir">
+            <p class="titulo-grafico">Personagens Escolhidos</p>
+            <div class="graficopersona"> <a name="verApiarios"></a>
+                <div id="grafiTexto">
+                    <div id="grafico1" class="display-block">
+                        <h3 class="tituloGraficos">
+                            <span id="tituloAquario1">123</span> <!-- Aqui pega o id pra mudar o titulo no js -->
+                        </h3>
+
+                        <div>
+                            <canvas id="myChart2" ></canvas>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+            
+
+</body>
+
+<script>
+
+    nomeDinamico.innerHTML = sessionStorage.NOME_USUARIO;
+
+    const labels = [
+    
+     
+      
+     ];
+ 
+     const data = {
+         labels: labels,
+         datasets:[{
+             label: 'Personagens',
+             backgroundcolor: '#0da8db',
+             bordercolor: '#0da8db',
+             data: []
+         },
+        ]
+     };
+ 
+     const config = {
+         type: 'line',
+         data: data,
+         Options: {}
+     };
+
+     const config2 = {
+         type: 'bar',
+         data: data,
+         Options: {}
+     };
+
+     const labels2 = [
+      '12:00',
+      '13:00',
+      '14:00',
+      '15:00',
+      '16:00',
+      '17:00',
+     ];
+ 
+     const data2 = {
+         labels: labels,
+         datasets:[{
+             label: 'Temperatura',
+             backgroundcolor: 'rgb(255,99,132)',
+             bordercolor: 'rgd(255,99,132)',
+             data: [30,29,28,25,22,23]
+         },
+        
+         {
+             label: 'Umidade',
+             backgroundcolor: 'rgb(0,0, 255)',
+             bordercolor: 'rgd(0,0,255)',
+             data: [80,82,80,85,80,83]
+         }
+
+        ]
+     };
+ 
+ </script>
+ 
+ <script>
+  
+
+     const myChart2 = new Chart (
+         document.getElementById('myChart2'),
+         config2
+     );
+var lista
+     async function listar(){
+    lista = await  fetch ('/dash/listar', { 
+        method: 'GET',
+        headers: {
+            "Content-Type":'application/json'
+        } 
+     }).then(res => res.json())
+console.log (lista)
+     return lista
+     };
+
+     
+   
+
+     var lista4
+     async function listar4(){
+     lista4 = await  fetch ('/dash/listar', { 
+        method: 'GET',
+        headers: {
+            "Content-Type":'application/json'
+        } 
+     }).then(res => res.json())
+
+     return lista4
+     }
+
+     
+
+    function exibirdados(){        
+        listar()
+       
+        listar4()
+
+        
+        for(var i = 0; i < lista.length; i++){
+            myChart2.data.datasets[0].data.push (lista[i].quantidadedevotos)
+            labels.push(lista[i].nome)
+        }
+
+        myChart2.update()
+        var max = document.querySelector("#min_valor")
+       
+        var min = document.querySelector("#total_valor")
+        var total = document.querySelector("#max_valor")
+        console.log('Min'+ (lista[0].quantidadedevotos))
+        var totalVotos = 0
+        for(var i=0 ; i<lista4.length;i++){
+            totalVotos += lista4[i].quantidadedevotos 
+        }
+        total_valor.innerHTML = `${totalVotos}`
+        console.log('Total'+ totalVotos)
+        total = 0;
+        min_valor.innerHTML = `${lista[0].nome} : ${((lista[0].quantidadedevotos) / totalVotos * 100).toFixed(2)}%`
+        max_valor.innerHTML = `${lista[lista.length - 1].nome}: ${((lista[lista.length - 1].quantidadedevotos) / totalVotos * 100 ).toFixed(2)}%`
+
+
+     }
+     setTimeout(()=>{
+        exibirdados()
+     },1000) 
+ </script>
+
+</html>
+
